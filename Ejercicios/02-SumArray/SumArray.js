@@ -1,5 +1,6 @@
 // array ordenado
 function SumArray(sortedArray, targetSum) {
+  sortedArray.sort((a, b) => a - b);
   let left = 0;
   let right = sortedArray.length - 1;
 
@@ -17,9 +18,5 @@ function SumArray(sortedArray, targetSum) {
 
   return false;
 }
-console.log(SumArray([2, 4, 5, 9], 9)) // to.equal(true)
-console.log(SumArray([2, 4, 5, 9], 12)) // to.equal(false)
-console.log(SumArray([2, 5, 9], 4)) // to.equal(false)
-console.log(SumArray([2, 4, 5, 9], 7)) // to.equal(true)
 
 module.exports = SumArray

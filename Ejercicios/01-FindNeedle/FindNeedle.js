@@ -19,8 +19,5 @@ function FindNeedle(haystack, needle) {
 
   return -1;
 }
-console.log(FindNeedle('react-redux', 'redux')) // to.equal(6)
-console.log(FindNeedle('pinky', 'puntual')) // to.equal(-1)
-console.log(FindNeedle('rereredux', 'reredux')) // to.equal(2)
 
 module.exports = FindNeedle

@@ -15,7 +15,5 @@ function MaxValue (prices) {
 
   return maxProfit;
 }
-console.log(MaxValue([4, 3, 2, 5, 11])) // to.equal(9)
-console.log(MaxValue([23, 7, 3, 4, 8, 6])) // to.equal(5)
 
 module.exports = MaxValue
