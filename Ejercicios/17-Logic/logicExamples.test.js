@@ -1,5 +1,5 @@
 const { isPalindrome, fizzBuzz, reverseString, findMissing, countChars, isBalanced } = require('./logicExamplesFull');
-const { fibonacciRecursivo, bubbleSort, nFactorial, contarVocales, sumArray, removeNullAndUndefined, isPrime } = require('./moreLogicExamples');
+const { fibonacciRecursivo, bubbleSort, nFactorial, contarVocales, sumArray, removeNullAndUndefined, isPrime, romanToArabic, convertToRoman } = require('./moreLogicExamples');
 
 describe('Test Suit 1', () => {
   // beforeEach(() => { console.log('before each')})
@@ -162,5 +162,23 @@ describe('Test suit 2', () => {
   test('isPrime: should throw error for negative numbers', () => {
     expect(() => isPrime(-5)).toThrow(Error);
     expect(() => isPrime(-5)).toThrow('Number must be positive');
-  });  
+  });
+  test('romanToArabic: should throw error for numbers', () => {
+    expect(() => romanToArabic(5)).toThrow(Error);
+    expect(() => romanToArabic(5)).toThrow('El argumento debe ser un string');
+  });
+  test('romanToArabic de 2, 4, 1982', () => {
+    expect(romanToArabic('II')).toBe(2);
+    expect(romanToArabic('IV')).toBe(4);
+    expect(romanToArabic('MCMLXXXII')).toBe(1982);
+  });
+  test('convertToRoman: should throw error for strings', () => {
+    expect(() => convertToRoman('5')).toThrow(Error);
+    expect(() => convertToRoman('5')).toThrow('El argumento debe ser un número');
+  });
+  test('convertToRoman de 2, 4, 1982', () => {
+    expect(convertToRoman(2)).toBe('II');
+    expect(convertToRoman(4)).toBe('IV');
+    expect(convertToRoman(1982)).toBe('MCMLXXXII');
+  });
 });

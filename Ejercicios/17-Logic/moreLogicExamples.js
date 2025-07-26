@@ -100,6 +100,59 @@ function isPrime(num) {
   return true;
 }
 
+function romanToArabic (roman) {
+  if (typeof roman !== 'string') throw new TypeError('El argumento debe ser un string');
+  const romanNumbers = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  }
+  let arabic = 0;
+  for (let i = 0; i < roman.length; i++) {
+    const current = romanNumbers[roman[i]];
+    const next = romanNumbers[roman[i + 1]];
+    if (current < next) {
+      arabic += next - current;
+      i++;
+    } else {
+      arabic += current;
+    }
+  }
+  return arabic;
+}
+
+function convertToRoman (arabic) {
+  if (typeof arabic !== 'number') throw new TypeError('El argumento debe ser un número');
+  if (arabic < 1 || arabic > 3999) throw new Error('El número debe estar entre 1 y 3999');
+  const romanNumbers = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  }
+  let roman = '';
+  for (let key in romanNumbers) {
+    while (arabic >= romanNumbers[key]) {
+      roman += key;
+      arabic -= romanNumbers[key];
+    }
+  }
+  return roman;
+}
+
 module.exports = {
   fibonacciRecursivo,
   bubbleSort,
@@ -107,6 +160,8 @@ module.exports = {
   contarVocales,
   sumArray,
   removeNullAndUndefined,
-  isPrime
+  isPrime,
+  romanToArabic,
+  convertToRoman
 }
   
